@@ -28,7 +28,12 @@ export async function GET(){
     try{
         const getAllPost = await prisma.post.findMany({
             include:{
-                user:true
+                user:true,
+                comments:{
+                    include:{
+                        user:true
+                    }
+                }            
             }
         })
         console.log(getAllPost)
