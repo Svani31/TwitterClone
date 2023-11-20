@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 interface PostProps {
   id: string;
   title: string;
@@ -37,8 +36,25 @@ function MainPage() {
     };
     fetchData();
   }, []);
+
+  // const commentHandler = async () =>{
+  //   try{
+  //     const respons = await fetch("http://localhost:3000/api/comments",{
+
+  //     })
+  //   }catch(error){
+  //     throw error
+  //   }
+  // }
+
+
   return (
-    <div className="flex justify-center flex-col items-center gap-6">
+    <div className="flex justify-center flex-col items-center gap-6 m-6">
+      {/* Post Creator Place */}
+        <div>
+          Post Creator
+        </div>
+      {/* eachpsot map */}
       {posts.map((eachPost) => {
         return (
           <div
@@ -67,12 +83,12 @@ function MainPage() {
             >
               {eachPost.body}
             </h3>
-            <img
+            {eachPost.image ? ( <img
               className="rounded-md items-center justify-center flex"
               style={{ width: "100%", height: "400px" }}
               src={eachPost.image}
               alt=""
-            />
+            />) : ("")}
             {/* commentars */}
             {eachPost.comments.map((eachComm)=>{
               const commentData = new Date(eachComm.createdAt)
