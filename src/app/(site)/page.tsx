@@ -17,7 +17,7 @@ export default function Home() {
     }else{
       route.replace("/")
     }
-  },[session])
+  },[route, session])
     return (
       <div className="m-5">
         <Header/>
