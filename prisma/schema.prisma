@@ -16,6 +16,7 @@ model User {
   posts Post[]
   comments Comments[]
 }
+
 model Post {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   body String
@@ -25,6 +26,7 @@ model Post {
   user User @relation(fields: [userId], references: [id])
   comments Comments[] 
 }
+
 model Comments {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())

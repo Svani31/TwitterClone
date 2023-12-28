@@ -21,23 +21,22 @@ const handler = NextAuth({
         if (!user) {
           return null;
         }
-
         // Include user id in the information returned
-        return user
+        return user;
       },
     }),
   ],
   session: {
     strategy: "jwt",
   },
-  callbacks:{
-    async jwt({token,user}){
-     return {...token,...user}
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
     },
-    async session({session,token,user}){
-      session.user =token
-      return session
-    }
+    async session({ session, token, user }) {
+      session.user = token;
+      return session;
+    },
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {

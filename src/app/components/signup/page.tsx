@@ -42,7 +42,7 @@ function SignUp() {
       image &&
       password == confirmpassword
     ) {
-      const respons = await fetch("http://localhost:3000/api/register", {
+      const respons = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_API_URL}/api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application.json",
@@ -161,7 +161,7 @@ function SignUp() {
       </div>
       {/* login */}
       <div className="border-2 p-5 flex flex-col text-center gap-5 rounded-xl">
-        <h1 className="font-bold text-white text-xl">Registartion</h1>
+        <h1 className="font-bold text-white text-xl">Log In</h1>
         <div className="w-full">
           <input
             className="p-2 outline-none border-2 rounded-xl text-white"
